@@ -1,0 +1,1484 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+
+	--main_color: #1f4c50;
+	--main_hover_color: #41adb7;
+	--back_color: #5f8480;
+	--item_color: #0b2d30;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.login
+{
+	width: 100vw;
+	height: 100vh;
+}
+
+.login > img
+{
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 100px;
+}
+
+.lnLogo
+{
+	height: 200px;
+	width: 250px;
+	margin-left: calc(50% - 125px);
+	margin-top: 15px;
+	background: blue;
+}
+
+.login > input
+{
+	height: 40px;
+	width: calc(50% - 20px);
+	margin-left: 25%;
+	margin-top: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 15px;
+	font-size: 1.2em;
+}
+
+.login > button
+{
+	height: 120px;
+	width: 500px;
+	margin-left: calc(50% - 250px);
+	margin-top: 50px;
+	border-radius: 15px;
+	font-size: 3.5em;
+	color: white;
+	background: var(--main_color);
+}
+
+.topBar
+{
+	width: 100vw;
+	height: 50px;
+	background: var(--main_color);
+}
+
+.topBar > button
+{
+	width: 50px;
+	height: 50px;
+	float: left;
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+	background: var(--main_color);
+	color: white;
+}
+
+.topBar > button:hover, .menu > button:hover, .actDiv > button:hover, .cdeDiv > button:hover, .pItem > button:hover, .btmDiv > button:hover, .options > button:hover, .adminRow > button:hover, .popup1 > button:hover, .ingList > * > button:hover, .actDiv > * > button:hover, .optionsChart > button:hover, .chartMenuDiv > button:hover, .chartMenuDiv > * > button:hover, .actualTableDiv > table > tr > th > button:hover
+{
+	background: var(--main_hover_color) !important;
+}
+
+.back > button:hover
+{
+	background: black;
+}
+
+.topBar > h1
+{
+	text-align: center;
+	width: calc(100% - 100px);
+	height: 50px;
+	line-height: 50px;
+	float: left;
+	color: white;
+}
+
+.menu, .pedDiv, .adminDiv, .estDiv
+{
+	width: calc(100vw - 10px);
+	height: calc(100vh - 60px);
+	margin-top: 5px;
+	margin-left: 5px;
+	text-align: center;
+}
+
+.menu
+{
+	overflow-y: auto;
+}
+
+.menu > button
+{
+	float: left;
+		height: 110px;
+		width: 500px;
+		margin-top: 20px;
+		margin-left: calc(50% - 250px);
+		border-radius: 20px;
+		background: var(--main_color);
+		color: white;
+		font-size: 1.5em;
+}
+
+
+@media screen and (orientation: portrait) {
+  	/* For mobile: */
+  	.menu > button
+	{
+		float: left;
+		height: 150px;
+		width: 85%;
+		margin-top: 40px;
+		margin-left: 7.5%;
+		border-radius: 50px;
+		background: var(--main_color);
+		color: white;
+		font-size: 2.5em;
+	}
+
+	.topBar
+	{
+		width: 100vw;
+		height: 150px;
+		background: var(--main_color);
+	}
+
+	.topBar > button
+	{
+		width: 150px;
+		height: 150px;
+		float: left;
+		font-size: 3em;
+		font-weight: bold;
+		line-height: 30px;
+		text-align: center;
+		background: var(--main_color);
+		color: white;
+	}
+
+	.topBar > h1
+	{
+		text-align: center;
+		width: calc(100% - 300px);
+		height: 150px;
+		line-height: 150px;
+		font-size: 3.5em;
+		float: left;
+		color: white;
+	}
+
+	.menu, .pedDiv, .adminDiv, .estDiv
+	{
+		width: calc(100vw - 10px);
+		height: calc(100vh - 160px);
+		margin-top: 5px;
+		margin-left: 5px;
+		text-align: center;
+	}
+}
+
+.pedDiv
+{
+	
+}
+
+.actDiv
+{
+	float: right;
+	height: calc(100% - 120px);
+	width: calc(50% - 10px);
+	margin: 5px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: var(--back_color);
+}
+
+.actDiv > button
+{
+	height: 120px;
+	width: 190px;
+	margin-top: 20px;
+	margin-left: 20px;
+	border-radius: 20px;
+	color: white;
+	font-size: 0.9em;
+	background: var(--main_color) !important;
+}
+
+.shwDiv
+{
+	float: right;
+	height: calc(100% - 70px);
+	width: calc(50% - 10px);
+	margin: 5px;
+	background: var(--back_color);
+	overflow-y: auto;
+}
+
+.pItem
+{
+	float: left;
+	height: 35px;
+	width: calc(100% - 20px);
+	margin-top: 10px;
+	margin-left: 10px;
+	border-radius: 	20px;
+	background: var(--item_color);
+}
+
+.pItem > h2
+{
+	float: left;
+	width: 100px;
+	height: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+	border-radius: 20px;
+	color: white;
+	margin-top: 2.5px;
+	font-size: 1.1em;
+	background: var(--main_color);
+}
+
+.extraIng
+{
+	float: left;
+	width: calc(100% - 80px);
+	height: auto;
+	margin-left: 40px !important;
+	border-radius: 20px !important;
+	background: var(--main_color) !important;
+}
+
+.extraIng > * > h1
+{
+	height: 25px;
+	width: calc(100% - 130px);
+	padding-left: 30px;
+	line-height: 25px;
+	text-align: left;
+	float: left;
+	font-size: 0.9em;
+	color: white;
+}
+
+.pricesIshow
+{
+	width: 90px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	font-size: 0.9em;
+	text-align: center;
+	color: white;
+}
+
+.pItem > button
+{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	border-radius: 20px;
+	color: white;
+	margin-top: 2.5px;
+	font-size: 1.2em;
+	background: var(--main_color);
+	line-height: 30px;
+}
+
+.iQty
+{
+	float: left;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 	15px;
+	font-size: 1.2em;
+	color: white;
+	margin-top: 2.5px;
+	margin-left: 5px;
+	background: var(--main_color);
+}
+
+.iNm
+{
+	float: left;
+	width: calc(100% - 175px);
+	height: 30px;
+	line-height: 30px;
+	font-size: 1em;
+	margin-left: 5px;
+	color: white;
+	border-radius: 	15px;
+	padding-left: 15px;
+	padding-right: 10px;
+	margin-top: 2.5px;
+	text-align: left;
+	background: var(--main_color);
+}
+
+.cdeDiv
+{
+	float: right;
+	height: 40px;
+	width: calc(50% - 10px);
+	margin-right: 5px;
+	margin-top: 5px;
+	background: var(--back_color);
+	text-align: center;
+}
+
+.cdeDiv > h3
+{
+	float: right;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.2em;
+	margin-left: 15px;
+}
+
+.cdeDiv > input
+{
+	float: right;
+	width: 70px;
+	height: 30px;
+	margin-top: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-transform: uppercase;
+}
+
+.cdeDiv > button
+{
+	float: right;
+	width: 36px;
+	height: 36px;
+	margin-top: 2px;
+	margin-left: 2px;
+	margin-right: 10px;
+	font-size: 1.1em;
+	color: white;
+	line-height: 36px;
+	font-weight: bolder;
+	background: var(--main_color);
+}
+
+.btmDiv
+{
+	float: right;
+	margin-top: 10px;
+	height: 50px;
+	width: 100%;
+	background: var(--back_color);
+}
+
+.btmDiv > button
+{
+	float: right;
+	height: 40px;
+	width: 140px;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-right: 10px; 
+	background: var(--main_color);
+	color: white;
+}
+
+.options
+{
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	background: var(--back_color);
+	margin-bottom: 10px;
+}
+
+.options > button
+{
+	height: 50px;
+	width: 150px;
+	background: var(--item_color);
+	color: 	white;
+}
+
+.adminTable
+{
+	height: calc(100% - 60px);
+	width: 100%;
+	overflow-y: auto;
+}
+
+.adminRow
+{
+	height: 40px;
+	width: 100%;
+	margin-top: 5px;
+	background: var(--back_color);
+}
+
+.adminRow > h3
+{
+	float: left;
+	height: 100%;
+	width: calc(100% - 495px);
+	text-align: left;
+	padding-left: 15px;
+	line-height: 40px;
+}
+
+#prodRow
+{
+	width: calc(100% - 655px) !important;
+}
+
+.adminRow > button
+{
+	float: left;
+	height: 100%;
+	width: 160px;
+	color: white;
+	background: var(--item_color);
+}
+
+.adminRow > div
+{
+	float: left;
+	height: 100%;
+	width: 160px;
+	text-align: center;
+	background: var(--main_color);
+	color: white;
+	line-height: 40px;	
+}
+
+.back
+{
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: rgba(0,0,0,0.8);
+}
+
+.back > button
+{
+	float: left;
+	height: 50px;
+	width: 50px;
+	background: red;
+	border-radius: 15px;
+	color: white;
+	margin-top: 5px;
+	margin-left: calc(50% + 375px);
+}
+
+.popup1
+{
+	float: left;
+	height: calc(100% - 70px);
+	width: 850px;
+	margin-top: 5px;
+	margin-left: calc(50% - 425px);
+}
+
+.popup1 > input[type=text]
+{
+	float: left;
+	height: 50px;
+	width: 470px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: 175px;
+	margin-top: 15px;
+}
+
+.popup1 > input[type=number]
+{
+	float: left;
+	height: 50px;
+	width: 80px;
+	margin-left: 10px;
+	margin-top: 15px;
+	padding-left: 10px;
+}
+
+.popup1 > select
+{
+	float: left;
+	height: 50px;
+	width: 140px;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+.popup1 > input[type=radio]
+{
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-left: 175px;
+	margin-top: 15px;
+}
+
+.popup1 > h1
+{
+	float: left;
+	height: 50px;
+	width: calc(33% - 10px);
+	margin-left: 10px;
+	margin-top: 15px;
+	line-height: 50px;
+	background: var(--back_color);
+	color: 	white;
+	text-align: center;
+}
+
+.popup1 > h2
+{
+	float: left;
+	height: 60px;
+	width: 100%;
+	margin-top: 15px;
+	line-height: 60px;
+	background: var(--main_color);
+	color: white;
+	text-align: center;
+}
+
+.popup1 > h3
+{
+	float: left;
+	height: 40px;
+	width: 440px;
+	margin-left: 20px;
+	margin-top: 15px;
+	line-height: 40px;
+	background: var(--back_color);
+	color: 	white;
+}
+
+.popup1 > button
+{
+	float: left;
+	height: 50px;
+	width: 300px;
+	margin-left: 275px;
+	margin-top: 15px;
+	background: var(--main_color);
+	color: white;
+	border-radius: 10px;
+}
+
+.ingList
+{
+	float: left;
+	height: calc(100% - 250px);
+	width: calc(100% - 200px);
+	margin-left: 100px;
+	margin-top: 15px;
+	overflow-y: auto;
+}
+
+.ingList > * > select
+{
+	float: left;
+	height: 40px;
+	width: calc(100% - 240px);
+	margin-top: 15px;
+	margin-left: 15px;
+	color: white;
+	background: var(--item_color);
+}
+
+.ingList > * > input[type=number]
+{
+	float: left;
+	height: 40px;
+	width: 65px;
+	margin-top: 15px;
+	margin-left: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+	background: var(--item_color);
+}
+
+.ingList > * > button
+{
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-top: 15px;
+	margin-left: 15px;
+	color: white;
+	background: var(--item_color);
+}
+
+.ingList > * > h2, .ingList > * > input[type=checkbox]
+{
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-top: 15px;
+	margin-left: 15px;
+	color: white;
+	background: var(--item_color);
+	font-size: 0.9em;
+	line-height: 40px;
+	text-align: center;
+}
+
+.ingList > h3
+{
+	float: left;
+	height: 40px;
+	width: calc(100% - 120px);
+	margin-top: 15px;
+	text-align: center;
+	line-height: 40px;
+	background: var(--back_color);
+	color: white;
+}
+
+.ingList > h2
+{
+	float: left;
+	height: 40px;
+	width: 120px;
+	margin-top: 15px;
+	text-align: center;
+	line-height: 40px;
+	background: var(--back_color);
+	color: white;
+}
+
+.ingList > h1
+{
+	float: left;
+	height: 40px;
+	width: 100%;
+	margin-top: 15px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 1.2em;
+	background: var(--back_color);
+}
+
+.ingList > select
+{
+	float: left;
+	height: 40px;
+	width: 85px;
+	margin-top: 15px;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	background: var(--item_color);
+}
+
+#prodName
+{
+	margin-left: 115px;
+	width: 220px !important;
+}
+
+#prodCode
+{
+	width: 75px !important;
+	margin-left: 10px !important;
+	text-transform: uppercase;
+}
+
+#ingName, #gastoName
+{
+	width: 365px !important;
+}
+
+.actDiv > * > h2
+{
+	width: 100%;
+	margin-top: 30px;
+	background: var(--main_color);
+	color: white;
+}
+
+.actDiv > * > h3
+{
+	width: 100%;
+	margin-top: 10px;
+	font-size: 3em;
+
+}
+
+.actDiv > * > button
+{
+	width: 200px;
+	height: 45px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background: var(--main_color);
+	color: white;
+}
+
+#discountDesc
+{
+	width: calc(50% - 30px);
+	height: 30px;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#discountCant
+{
+	width: 100px;
+	height: 30px;
+	margin-left: 10px;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#montoCant
+{
+	width: 100px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: calc(50% - 65px);
+	margin-right: calc(50% - 65px);
+	padding-left: 15px;
+	padding-right: 15px; 
+}
+
+.cants
+{
+	width: 300px !important;
+}
+
+.gestIng
+{
+	width: calc(100% - 635px) !important;
+}
+
+#cantToAdd
+{
+	width: calc(33% - 10px) !important;
+	margin-left: 0px !important;
+}
+
+.upsidedown
+{
+	width: calc(33% - 10px) !important;
+	margin-left: 0px !important;
+	margin-right: 10px !important;
+}
+
+.chartDiv
+{
+	float: left;
+	background: var(--back_color);
+	width: calc(100% - 310px);
+	height: calc(100% - 10px);
+	padding: 5px;
+}
+
+.optionsChart
+{
+	float: left;
+	height: 50px;
+	width: 100%;
+	background: blue;
+}
+
+.optionsChart > button
+{
+	height: 100%;
+	width: 50%;
+	float: left;
+	background: var(--main_color);
+	color: white;
+	font-size: 1.3em;
+}
+
+.actualChartDiv, .actualTableDiv
+{
+	float: left;
+	height: calc(100% - 50px);
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+	overflow-y: auto;
+}
+
+.actualTableDiv > table
+{
+	width: 100%;
+	color: white;
+}
+
+.actualTableDiv > table > tr
+{
+	height: 45px;
+}
+
+.actualTableDiv > table > tr > th
+{
+	height: 45px;
+}
+
+.actualTableDiv > table > tr > th > button
+{
+	height: 100%;
+	width: 100%;
+	background: var(--main_color);
+	color: white;
+}
+
+.colName
+{
+	background: rgba(0,0,0,0.5);
+}
+
+.colNon
+{
+	background: rgba(255,255,255,0.5);	
+}
+
+.chartMenuDiv
+{
+	float: left;
+	background: var(--back_color);
+	width: 300px;
+	height: 100%;
+	text-align: center;
+	overflow-y: auto;
+}
+
+.chartMenuDiv > * > input
+{
+	height: 40px;
+	width: 240px;
+	padding-left: 20px;
+	background: white;
+	border-radius: 10px;
+	font-size: 1.1em;
+	margin-top: 20px;
+}
+
+.chartMenuDiv > h2
+{
+	height: 50px;
+	width: 260px;
+	background: var(--main_color);
+	color: white;
+	border-radius: 20px;
+	font-size: 1.3em;
+	margin-top: 20px;
+	line-height: 50px;
+	margin-left: 17px;
+}
+
+.chartMenuDiv > button, .chartMenuDiv > * > button 
+{
+	height: 100px;
+	width: 260px;
+	background: var(--main_color);
+	color: white;
+	border-radius: 20px;
+	font-size: 1.1em;
+	margin-top: 20px;
+}
+
+.chartMenuDiv > * > button 
+{
+	margin-top: 0px !important;
+}
+
+.prodNameStats
+{
+	width: calc(100% - 240px) !important;
+}
+
+.fechaGast
+{
+	width:	300px !important;
+	font-size: 0.8em;
+}
+
+@media screen and (orientation: portrait) {
+  	/* For mobile: */
+
+  	.shwDiv
+	{
+		float: right !important;
+		height: calc(48% - 10px) !important;
+		width: calc(100% - 10px) !important;
+		margin: 5px !important;
+		background: var(--back_color) !important;
+		overflow-y: auto !important;
+	}
+
+	.actDiv
+	{
+		float: right !important;
+		height: calc(52% - 230px  ) !important;
+		width: calc(100% - 10px) !important;
+		margin: 5px !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+		background: var(--back_color) !important;
+	}
+
+	.actDiv > button
+	{
+		height: 250px !important;
+		width: 400px !important;
+		margin-top: 20px !important;
+		margin-left: 20px !important;
+		border-radius: 60px !important;
+		color: white;
+		font-size: 2em;
+		background: var(--main_color) !important;
+	}
+
+	.cdeDiv
+	{
+		float: right !important;
+		height: 90px !important;
+		width: calc(100% - 10px) !important;
+		margin-right: 5px !important;
+		margin-top: 5px !important;
+		margin-bottom: 20px;
+		background: var(--back_color) !important;
+		text-align: center !important;
+	}
+
+	.cdeDiv > h3
+	{
+		float: right !important;
+		width: 200px !important;
+		height: 90px !important;
+		line-height: 90px !important;
+		font-size: 2em !important;
+		margin-left: 15px !important;
+	}
+
+	.cdeDiv > input
+	{
+		float: right !important;
+		width: calc(100% - 400px) !important;
+		height: 80px !important;
+		margin-top: 3px !important;
+		margin-right: 15px;
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+		text-transform: uppercase !important;
+		border-radius: 30px;
+		text-align: center;
+		font-size: 3em;
+	}
+
+	.cdeDiv > button
+	{
+		float: right !important;
+		width: 86px !important;
+		height: 86px !important;
+		margin-top: 2px !important;
+		margin-left: 2px !important;
+		margin-right: 10px !important;
+		border-radius: 50px !important;
+		font-size: 3em !important;
+		color: white;
+		font-weight: bolder;
+		background: var(--main_color);
+	}
+
+	.btmDiv
+	{
+		float: right !important;
+		height: 90px !important;
+		width: calc(100% - 10px) !important;
+		margin-right: 5px !important;
+		margin-top: 5px !important;
+		background: var(--back_color) !important;
+		text-align: center !important;
+	}
+
+	.btmDiv > button
+	{
+		float: right !important;
+		height: 80px !important;
+		width: 250px !important;
+		border-radius: 30px !important;
+		margin-top: 5px !important;
+		margin-right: 10px !important; 
+		background: var(--main_color) !important;
+		font-size: 1.5em !important;
+		color: white !important;
+	}
+
+	.pItem
+	{
+		float: left !important;
+		height: 85px !important;
+		width: calc(100% - 20px) !important;
+		margin-top: 10px !important;
+		margin-left: 10px !important;
+		border-radius: 40px !important;
+		background: var(--item_color) !important;
+	}
+
+	.pItem > h2
+	{
+		float: left !important;
+		width: 235px !important;
+		height: 75px !important;
+		margin-left: 5px !important;
+		line-height: 75px !important;
+		border-radius: 40px !important;
+		color: white !important;
+		margin-top: 5px !important;
+		font-size: 2em !important;
+		background: var(--main_color) !important;
+	}
+
+	.extraIng
+	{
+		float: left !important;
+		width: calc(100% - 80px) !important;
+		height: auto !important;
+		margin-left: 40px !important;
+		border-radius: 40px !important;
+		background: var(--main_color) !important;
+	}
+
+	.extraIng > * > h1
+	{
+		height: 55px !important;
+		width: calc(100% - 255px) !important;
+		padding-left: 60px !important;
+		line-height: 55px !important;
+		text-align: left !important;
+		float: left !important;
+		font-size: 1.7em !important;
+		color: white !important;
+	}
+
+	.pricesIshow
+	{
+		width: 130px !important;
+		height: 55px !important;
+		line-height: 55px !important;
+		float: left !important;
+		font-size: 1.7em !important;
+		text-align: center;
+		color: white !important;
+	}
+
+	.pItem > button
+	{
+		float: left !important;
+		width: 75px !important;
+		height: 75px !important;
+		margin-left: 5px !important;
+		line-height: 75px !important;
+		border-radius: 40px !important;
+		color: white !important;
+		margin-top: 5px !important;
+		font-size: 2em !important;
+		background: var(--main_color) !important;
+	}
+
+	.iQty
+	{
+		float: left !important;
+		width: 75px !important;
+		height: 75px !important;
+		line-height: 75px !important;
+		border-radius: 40px;
+		font-size: 2em !important;
+		color: white !important;
+		margin-top: 5px !important;
+		margin-left: 5px !important;
+		background: var(--main_color) !important;
+	}
+
+	.iNm
+	{
+		float: left !important;
+		width: calc(100% - 355px) !important;
+		height: 75px !important;
+		line-height: 75px !important;
+		font-size: 2.5em !important;
+		margin-left: 5px !important;
+		color: white !important;
+		border-radius: 40px !important;
+		padding-left: 15px !important;
+		padding-right: 10px !important;
+		margin-top: 5px !important;
+		text-align: left !important;
+		background: var(--main_color) !important;
+	}
+
+	.back > button
+	{
+		float: left !important;
+		height: 100px !important;
+		width: 100px !important;
+		background: red !important;
+		border-radius: 15px !important;
+		color: white !important;
+		font-size: 3em;
+		line-height: 100px;
+		margin-top: 15px !important;
+		margin-left: calc(50% + 325px) !important;
+	}
+
+	.ingList
+	{
+		float: left !important;
+		height: calc(100% - 500px) !important;
+		width: 100% !important;
+		margin-left: 0px !important;
+		margin-top: 15px !important;
+		overflow-y: auto !important;
+	}
+
+	.ingList > h2
+	{
+		float: left;
+		height: 80px;
+		width: 160px;
+		margin-top: 15px;
+		text-align: center;
+		line-height: 40px;
+		background: var(--back_color);
+		color: white;
+	}
+
+	.ingList > h3
+	{
+		float: left !important;
+		height: 80px !important;
+		width: calc(100% - 160px);
+		margin-top: 15px !important;
+		text-align: center !important;
+		line-height: 80px !important;
+		background: var(--back_color) !important;
+		font-size: 2em !important;
+		color: white !important;
+	}
+
+	.ingList > select
+	{
+		float: left !important;
+		height: 80px !important;
+		width: 160px !important;
+		margin-top: 15px !important;
+		text-align: center !important;
+		line-height: 80px !important;
+		font-size: 2em !important;
+		color: white;
+		background: var(--item_color);
+	}
+
+	.popup1 > button
+	{
+		float: left !important;
+		height: 150px !important;
+		width: 450px !important;
+		margin-left: calc(50% - 225px) !important;
+		margin-top: 20px !important;
+		border-radius: 60px !important;
+		background: var(--main_color) !important;
+		color: white !important;
+		font-size: 2em !important;	
+	}
+
+	.options
+	{
+		height: 100px !important;
+	}
+
+	.options > button
+	{
+		height: 100px !important;
+		width: 250px !important;
+		font-size: 1.7em;
+	}
+
+	.adminTable
+	{
+		height: calc(100% - 110px) !important;
+	}
+
+	.adminRow
+	{
+		height: 80px !important;
+		line-height: 80px !important;
+		font-size: 1.3em !important;
+	}
+
+	.adminRow > button
+	{
+		font-size: 0.8em !important;
+	}
+
+	.popup1
+	{
+		height: calc(100% - 120px) !important;
+	}
+
+	.popup1 > h2
+	{
+		height: 100px !important;
+		line-height: 100px !important;
+		font-size: 2.5em;
+	}
+
+	.popup1 > input[type=text]
+	{
+		height: 100px !important;
+		width: calc(100% - 30px) !important;
+		margin-left: 0px !important;
+		font-size: 2.5em;
+	}
+
+	.popup1 > input[type=number]
+	{
+		height: 100px !important;
+		width: 180px !important;
+		font-size: 2.5em !important;
+	}
+
+	.popup1 > select
+	{
+		height: 100px !important;
+		width: calc(100% - 410px) !important;
+		margin-left: 0px !important;
+		font-size: 2em !important;
+	}
+
+	.popup1 > input[type=radio]
+	{
+		height: 80px !important;
+		width: 80px !important;
+		margin-left: 0px !important;
+	}
+
+	.popup1 > h1
+	{
+		height: 100px !important;
+		line-height: 100px;
+		
+	}
+
+	.popup1 > h2
+	{
+		float: left;
+		height: 60px;
+		width: 100%;
+		margin-top: 15px;
+		line-height: 60px;
+		background: var(--main_color);
+		color: white;
+		text-align: center;
+	}
+
+	.popup1 > h3
+	{
+		float: left;
+		height: 80px !important;
+		width: calc(100% - 100px) !important;
+		line-height: 80px !important;
+		font-size: 1.8em !important;
+	}
+
+	.popup1 > button
+	{
+		float: left;
+		height: 50px;
+		width: 300px;
+		margin-left: 275px;
+		margin-top: 15px;
+		background: var(--main_color);
+		color: white;
+		border-radius: 10px;
+	}
+
+	#prodName
+	{
+		width: calc(100% - 35px) !important;
+	}
+
+	#prodCode
+	{
+		width: 160px !important;
+		margin-left: 10px !important;
+		text-transform: uppercase;
+	}
+
+	#ingName
+	{
+		width: calc(100% - 240px) !important;
+	}
+
+	#ingList
+	{
+		height: calc(100% - 650px) !important;
+	}
+
+	.ingList > * > select
+	{
+		height: 80px !important;
+		line-height: 80px !important;
+		font-size: 1.7em !important;
+		margin-left: 0px !important;
+		width: calc(100% - 280px) !important;
+	}
+
+	.ingList > * > input[type=number]
+	{
+		height: 80px !important;
+		width: 140px !important;
+		font-size: 1.9em;
+	}
+
+	.ingList > * > button
+	{
+		height: 80px !important;
+		width: 80px !important;
+		font-size: 2em;
+	}
+
+
+
+	.adminRow > div
+	{
+		width: 160px ;
+	}
+
+	.cants
+	{
+		width: 300px !important;
+	}
+
+	.actDiv > * > h2
+	{
+		font-size: 3em !important;
+	}
+
+	.actDiv > * > h3
+	{
+		font-size: 6em !important;
+
+	}
+
+	.actDiv > * > button
+	{
+		width: 350px !important;
+		height: 120px !important;
+		font-size: 2em !important;
+	}
+
+	#discountDesc
+	{
+		height: 80px;
+		line-height: 80px;
+		font-size: 3em;
+	}
+
+	#discountCant
+	{
+		height: 80px;
+		width: 250px;
+		line-height: 80px;
+		font-size: 3em;
+	}
+
+	#montoCant
+	{
+		height: 80px;
+		width: 250px !important;
+		margin-left: calc(50% - 140px);
+		line-height: 80px;
+		font-size: 3em;
+	}
+
+	.chartDiv
+	{
+		width: calc(100% - 10px) !important;
+		height: calc(60% - 10px) !important;
+	}
+	.chartMenuDiv
+	{
+		width: 100% !important;
+		height: 40% !important;
+	}
+
+	.optionsChart
+	{
+		height: 100px !important;
+	}
+
+	.optionsChart > button
+	{
+		 font-size: 2em !important;
+	}
+
+	.actualChartDiv, .actualTableDiv
+	{
+		height: calc(100% - 100px) !important;
+	}
+
+	.chartMenuDiv > * > input
+	{
+		height: 80px !important;
+		width: 80% !important;
+		font-size: 2em !important;
+	}
+
+	.chartMenuDiv > h2
+	{
+		height: 100px !important;
+		width: 80% !important;
+		margin-left: 10% !important;
+		font-size: 2em !important;
+	}
+
+	.chartMenuDiv > button, .chartMenuDiv > * > button 
+	{
+		height: 200px !important;
+		width: 80% !important;
+		font-size: 2em !important;
+	}
+
+	.actualTableDiv > table > tr
+	{
+		height: 80px !important;
+		font-size: 1.2em !important;
+	}
+
+	.actualTableDiv > table > tr > th
+	{
+		height: 80px !important;
+		font-size:  1.2em !important;
+	}
+
+	.actualTableDiv > table > tr > th > button
+	{
+		font-size: 1.2em !important;
+	}
+
+	.prodNameStats
+	{
+		width: calc(100% - 320px) !important;
+	}
+}
