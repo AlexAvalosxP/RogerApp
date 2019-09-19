@@ -9,7 +9,24 @@
 <body>
 	<div class="login">
 		<img src="IMG/logo.png">
-		<button onclick="window.location.assign('mesas.html')">Comenzar</button>
+		<button onclick="checkconnection()">Comenzar</button>
 	</div>
 </body>
+<script type="text/javascript">
+	function checkconnection()
+	{
+		var ajax = new XMLHttpRequest();
+	    ajax.open('GET', "http://192.168.1.85/Roger/PHP/GetMesas.php", true);
+	    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    ajax.send();
+	    ajax.onreadystatechange = function() {
+	    	if (this.readyState == 4 && this.status == 200) {
+	    			window.location.assign('mesas.html')
+	    	} else if (this.readyState == 4 && this.status == 0)
+	    	{
+	    		alert("El servicio no ha sido iniciado (INICIAR XAMPP EN PC)");
+	    	}
+		}
+	}	
+</script>
 </html>

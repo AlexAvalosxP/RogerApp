@@ -1,5 +1,3 @@
-ingElemIndex = 0;
-
 function loadMesasPedido()
 {
 	menuMesas = document.getElementById('menuMesas');
@@ -133,7 +131,7 @@ function loadMenuMesa(jsonRes)
 		newButtonMs.setAttribute('hidden', 'true');
 
 		newButtonSn = document.createElement('button')
-		newButtonSn.setAttribute("onclick", "editProd('" + pedidoJson[i].prodId + "', '" + pedidoJson[i].prodNm + "', '" + ingElemIndex + "')");
+		newButtonSn.setAttribute("onclick", "editProd('" + pedidoJson[i].prodId + "', '" + pedidoJson[i].prodNm + "', '" + ingElemIndex + "', " + parseInt(pedidoJson[i].index1) + ", " + parseInt(pedidoJson[i].index2) + ")");
 		newButtonSn.innerHTML = "S/";
 		newButtonSn.setAttribute("class", "btnControl");
 		newButtonSn.setAttribute('hidden', 'true');
@@ -152,6 +150,11 @@ function loadMenuMesa(jsonRes)
 		newDiv_hidden = document.createElement('div');
 		newDiv_hidden.setAttribute('id', pedidoJson[i].prodId);
 		newDiv_hidden.setAttribute('hidden', 'true');
+
+		newDiv_hidden2 = document.createElement('div');
+		newDiv_hidden2.setAttribute('class', 'indexes');
+		newDiv_hidden2.setAttribute('hidden', 'true');
+		newDiv_hidden2.innerHTML = pedidoJson[i].index1 + "," + pedidoJson[i].index2;
 
 		newH3_hidden = document.createElement('h3');
 		newH3_hidden.setAttribute('class', 'catTypes');
@@ -172,6 +175,7 @@ function loadMenuMesa(jsonRes)
 		newDiv.appendChild(newButtonPs);
 		newDiv.appendChild(newButtonMs);
 		newDiv.appendChild(newDiv_hidden);
+		newDiv.appendChild(newDiv_hidden2);
 		newDiv.appendChild(newH3_hidden);
 		newDiv.appendChild(newH2_hidden);
 		newDiv.appendChild(newH2_show);
@@ -437,7 +441,7 @@ function cancelPedido2()
 
 function loadMesa()
 {
-	document.getElementById('cdeDiv').hidden = false;
+	//document.getElementById('cdeDiv').hidden = false;
 	cntrl = document.getElementsByClassName('btnControl');
 	document.getElementById('btnSwitch').hidden = false;
 
@@ -615,6 +619,11 @@ function addItemPedido(idP, nameP, typeC, priceP, index1, index2)
 	newDiv_hidden.setAttribute('id', idP);
 	newDiv_hidden.setAttribute('hidden', 'true');
 
+	newDiv_hidden2 = document.createElement('div');
+	newDiv_hidden2.setAttribute('class', 'indexes');
+	newDiv_hidden2.setAttribute('hidden', 'true');
+	newDiv_hidden2.innerHTML = index1 + "," + index2;
+
 	newH3_hidden = document.createElement('h3');
 	newH3_hidden.setAttribute('class', 'catTypes');
 	newH3_hidden.setAttribute('hidden', 'true');
@@ -634,6 +643,7 @@ function addItemPedido(idP, nameP, typeC, priceP, index1, index2)
 	newDiv.appendChild(newButtonPs);
 	newDiv.appendChild(newButtonMs);
 	newDiv.appendChild(newDiv_hidden);
+	newDiv.appendChild(newDiv_hidden2);
 	newDiv.appendChild(newH3_hidden);
 	newDiv.appendChild(newH2_hidden);
 	newDiv.appendChild(newH2_show);
@@ -841,7 +851,7 @@ function deleteProd(id)
 	parnt.parentElement.removeChild(parnt);
 }
 
-function agregarPedido()
+function agregarPedido(imp)
 {
 	dataArr = [];	
 
@@ -849,6 +859,7 @@ function agregarPedido()
 	extraArray = document.getElementsByClassName('extraIng');
 	catArray = document.getElementsByClassName('catTypes');
 	pricesArray = document.getElementsByClassName('pricesP');
+	indexesArray = document.getElementsByClassName('indexes');
 
 	for (i = 0; i < itemArray.length; i++)
 	{
@@ -864,28 +875,34 @@ function agregarPedido()
 			});
 		}
 
+		indexes = indexesArray[i].innerHTML.split(",");
+
 		dataArr.push({
 			prodId: parseInt(itemArray[i].childNodes[5].id),
 			prodNm: itemArray[i].childNodes[1].innerText,
 			cant: parseInt(itemArray[i].childNodes[0].innerHTML),
 			extra: extraArr,
 			cat: parseInt(catArray[i].innerText),
-			priceP: parseFloat(pricesArray[i].innerText.substring(1))
+			priceP: parseFloat(pricesArray[i].innerText.substring(1)),
+			index1: indexes[0],
+			index2: indexes[1]
 		});
 	}
 
 	if(dataArr.length != 0)
 	{
 		nmMesa = document.getElementById('dMesa').innerHTML;
-
-		var ajaxTicket = new XMLHttpRequest();
-	    ajaxTicket.open('POST', "http://192.168.1.85/Roger/PHP/printPedido.php", true);
-	    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    ajaxTicket.send("m=" + nmMesa + "&p=" + JSON.stringify(dataArr));
-	    ajaxTicket.onreadystatechange = function() {
-	    	if (this.readyState == 4 && this.status == 200) {
-	    	}
-	    }
+		if (imp == 1)
+		{
+			var ajaxTicket = new XMLHttpRequest();
+		    ajaxTicket.open('POST', "http://192.168.1.85/Roger/PHP/printPedido.php", true);
+		    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		    ajaxTicket.send("m=" + nmMesa + "&p=" + JSON.stringify(dataArr));
+		    ajaxTicket.onreadystatechange = function() {
+		    	if (this.readyState == 4 && this.status == 200) {
+		    	}
+		    }
+		}
 
 		var ajax = new XMLHttpRequest();
 	    ajax.open('POST', "http://192.168.1.85/Roger/PHP/SETpedido.php", true);

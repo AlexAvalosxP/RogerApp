@@ -20,7 +20,7 @@
 {
 	width: 80%;
 	margin-left: 10%;
-	margin-top: 100px;
+	margin-top: 75px;
 }
 
 .lnLogo
@@ -47,11 +47,11 @@
 .login > button
 {
 	height: 120px;
-	width: 500px;
-	margin-left: calc(50% - 250px);
+	width: 80%;
+	margin-left: 10%;
 	margin-top: 50px;
-	border-radius: 15px;
-	font-size: 3.5em;
+	border-radius: 25px;
+	font-size: 2.5em;
 	color: white;
 	background: var(--main_color);
 }
@@ -114,9 +114,9 @@
 {
 	float: left;
 		height: 110px;
-		width: 500px;
+		width: 80%;
 		margin-top: 20px;
-		margin-left: calc(50% - 250px);
+		margin-left: 10%;
 		border-radius: 20px;
 		background: var(--main_color);
 		color: white;
@@ -129,27 +129,27 @@
   	.menu > button
 	{
 		float: left;
-		height: 150px;
+		height: 100px;
 		width: 85%;
-		margin-top: 40px;
+		margin-top: 25px;
 		margin-left: 7.5%;
-		border-radius: 50px;
+		border-radius: 25px;
 		background: var(--main_color);
 		color: white;
-		font-size: 2.5em;
+		font-size: 1.6em;
 	}
 
 	.topBar
 	{
 		width: 100vw;
-		height: 150px;
+		height: 60px;
 		background: var(--main_color);
 	}
 
 	.topBar > button
 	{
-		width: 150px;
-		height: 150px;
+		width: 60px;
+		height: 60px;
 		float: left;
 		font-size: 3em;
 		font-weight: bold;
@@ -162,10 +162,10 @@
 	.topBar > h1
 	{
 		text-align: center;
-		width: calc(100% - 300px);
-		height: 150px;
-		line-height: 150px;
-		font-size: 3.5em;
+		width: calc(100% - 120px);
+		height: 60px;
+		line-height: 60px;
+		font-size: 1.8em;
 		float: left;
 		color: white;
 	}
@@ -173,7 +173,7 @@
 	.menu, .pedDiv, .adminDiv, .estDiv
 	{
 		width: calc(100vw - 10px);
-		height: calc(100vh - 160px);
+		height: calc(100vh - 70px);
 		margin-top: 5px;
 		margin-left: 5px;
 		text-align: center;
@@ -263,6 +263,7 @@
 	float: left;
 	font-size: 0.9em;
 	color: white;
+	overflow-x: auto;
 }
 
 .pricesIshow
@@ -928,7 +929,7 @@
 	.actDiv
 	{
 		float: right !important;
-		height: calc(52% - 230px  ) !important;
+		height: calc(52% - 80px  ) !important;
 		width: calc(100% - 10px) !important;
 		margin: 5px !important;
 		overflow-y: auto !important;
@@ -938,13 +939,13 @@
 
 	.actDiv > button
 	{
-		height: 250px !important;
-		width: 400px !important;
-		margin-top: 20px !important;
-		margin-left: 20px !important;
-		border-radius: 60px !important;
+		height: 100px !important;
+		width: 180px !important;
+		margin-top: 10px !important;
+		margin-left: 10px !important;
+		border-radius: 30px !important;
 		color: white;
-		font-size: 2em;
+		font-size: 1em;
 		background: var(--main_color) !important;
 	}
 
@@ -1003,7 +1004,7 @@
 	.btmDiv
 	{
 		float: right !important;
-		height: 90px !important;
+		height: 60px !important;
 		width: calc(100% - 10px) !important;
 		margin-right: 5px !important;
 		margin-top: 5px !important;
@@ -1014,38 +1015,39 @@
 	.btmDiv > button
 	{
 		float: right !important;
-		height: 80px !important;
-		width: 250px !important;
-		border-radius: 30px !important;
+		height: 50px !important;
+		width: 120px !important;
+		border-radius: 15px !important;
 		margin-top: 5px !important;
 		margin-right: 10px !important; 
 		background: var(--main_color) !important;
-		font-size: 1.5em !important;
+		font-size: 0.9em !important;
 		color: white !important;
+		line-height: 20px;
 	}
 
 	.pItem
 	{
 		float: left !important;
-		height: 85px !important;
+		height: 45px !important;
 		width: calc(100% - 20px) !important;
 		margin-top: 10px !important;
 		margin-left: 10px !important;
-		border-radius: 40px !important;
+		border-radius: 20px !important;
 		background: var(--item_color) !important;
 	}
 
 	.pItem > h2
 	{
 		float: left !important;
-		width: 235px !important;
-		height: 75px !important;
+		width: 115px !important;
+		height: 35px !important;
 		margin-left: 5px !important;
-		line-height: 75px !important;
+		line-height: 35px !important;
 		border-radius: 40px !important;
 		color: white !important;
 		margin-top: 5px !important;
-		font-size: 2em !important;
+		font-size: 1.2em !important;
 		background: var(--main_color) !important;
 	}
 
@@ -1055,29 +1057,32 @@
 		width: calc(100% - 80px) !important;
 		height: auto !important;
 		margin-left: 40px !important;
-		border-radius: 40px !important;
+		border-radius: 20px !important;
 		background: var(--main_color) !important;
 	}
 
 	.extraIng > * > h1
 	{
-		height: 55px !important;
-		width: calc(100% - 255px) !important;
-		padding-left: 60px !important;
-		line-height: 55px !important;
+		height: 30px !important;
+		width: calc(100% - 125px) !important;
+		padding-left: 30px !important;
+		line-height: 30px !important;
 		text-align: left !important;
 		float: left !important;
-		font-size: 1.7em !important;
+		font-size: 1em !important;
 		color: white !important;
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space:nowrap;
 	}
 
 	.pricesIshow
 	{
-		width: 130px !important;
-		height: 55px !important;
-		line-height: 55px !important;
+		width: 90px !important;
+		height: 30px !important;
+		line-height: 30px !important;
 		float: left !important;
-		font-size: 1.7em !important;
+		font-size: 1em !important;
 		text-align: center;
 		color: white !important;
 	}
@@ -1085,25 +1090,25 @@
 	.pItem > button
 	{
 		float: left !important;
-		width: 75px !important;
-		height: 75px !important;
+		width: 35px !important;
+		height: 35px !important;
 		margin-left: 5px !important;
-		line-height: 75px !important;
-		border-radius: 40px !important;
+		line-height: 35px !important;
+		border-radius: 20px !important;
 		color: white !important;
 		margin-top: 5px !important;
-		font-size: 2em !important;
+		font-size: 1em !important;
 		background: var(--main_color) !important;
 	}
 
 	.iQty
 	{
 		float: left !important;
-		width: 75px !important;
-		height: 75px !important;
-		line-height: 75px !important;
-		border-radius: 40px;
-		font-size: 2em !important;
+		width: 35px !important;
+		height: 35px !important;
+		line-height: 35px !important;
+		border-radius: 20px;
+		font-size: 1em !important;
 		color: white !important;
 		margin-top: 5px !important;
 		margin-left: 5px !important;
@@ -1113,10 +1118,10 @@
 	.iNm
 	{
 		float: left !important;
-		width: calc(100% - 355px) !important;
-		height: 75px !important;
-		line-height: 75px !important;
-		font-size: 2.5em !important;
+		width: calc(100% - 195px) !important;
+		height: 35px !important;
+		line-height: 35px !important;
+		font-size: 1em !important;
 		margin-left: 5px !important;
 		color: white !important;
 		border-radius: 40px !important;
@@ -1125,20 +1130,22 @@
 		margin-top: 5px !important;
 		text-align: left !important;
 		background: var(--main_color) !important;
+		overflow-x: auto;
+		white-space:nowrap;
 	}
 
 	.back > button
 	{
 		float: left !important;
-		height: 100px !important;
-		width: 100px !important;
+		height: 50px !important;
+		width: 50px !important;
 		background: red !important;
 		border-radius: 15px !important;
 		color: white !important;
-		font-size: 3em;
-		line-height: 100px;
+		font-size: 2em;
+		line-height: 50px;
 		margin-top: 15px !important;
-		margin-left: calc(50% + 325px) !important;
+		margin-left: calc(100% - 60px) !important;
 	}
 
 	.ingList
@@ -1166,25 +1173,25 @@
 	.ingList > h3
 	{
 		float: left !important;
-		height: 80px !important;
-		width: calc(100% - 160px);
+		height: 50px !important;
+		width: calc(100% - 120px);
 		margin-top: 15px !important;
 		text-align: center !important;
-		line-height: 80px !important;
+		line-height: 50px !important;
 		background: var(--back_color) !important;
-		font-size: 2em !important;
+		font-size: 1em !important;
 		color: white !important;
 	}
 
 	.ingList > select
 	{
 		float: left !important;
-		height: 80px !important;
-		width: 160px !important;
+		height: 50px !important;
+		width: 110px !important;
 		margin-top: 15px !important;
 		text-align: center !important;
-		line-height: 80px !important;
-		font-size: 2em !important;
+		line-height: 50px !important;
+		font-size: 1.3em !important;
 		color: white;
 		background: var(--item_color);
 	}
@@ -1192,14 +1199,14 @@
 	.popup1 > button
 	{
 		float: left !important;
-		height: 150px !important;
-		width: 450px !important;
-		margin-left: calc(50% - 225px) !important;
+		height: 80px !important;
+		width: 250px !important;
+		margin-left: calc(50% - 125px) !important;
 		margin-top: 20px !important;
 		border-radius: 60px !important;
 		background: var(--main_color) !important;
 		color: white !important;
-		font-size: 2em !important;	
+		font-size: 1em !important;	
 	}
 
 	.options
@@ -1233,14 +1240,16 @@
 
 	.popup1
 	{
-		height: calc(100% - 120px) !important;
+		height: calc(100% - 60px) !important;
+		width: 100% !important;
+		margin-left: 0px !important;
 	}
 
 	.popup1 > h2
 	{
-		height: 100px !important;
-		line-height: 100px !important;
-		font-size: 2.5em;
+		height: 50px !important;
+		line-height: 50px !important;
+		font-size: 1.3em;
 	}
 
 	.popup1 > input[type=text]
@@ -1332,7 +1341,7 @@
 
 	#ingList
 	{
-		height: calc(100% - 650px) !important;
+		height: calc(100% - 220px) !important;
 	}
 
 	.ingList > * > select
