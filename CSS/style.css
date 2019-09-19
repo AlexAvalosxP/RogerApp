@@ -10,6 +10,28 @@
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+.loadingScreen
+{
+	position: fixed;
+	z-index: 999;
+	top: calc(50vh - 90px);
+	left: calc(50vw - 90px);
+}
+
+.loadingAnimation {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 150px;
+  height: 150px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .login
 {
 	width: 100vw;
@@ -1381,44 +1403,44 @@
 
 	.actDiv > * > h2
 	{
-		font-size: 3em !important;
+		font-size: 1.3em !important;
 	}
 
 	.actDiv > * > h3
 	{
-		font-size: 6em !important;
+		font-size: 3.4em !important;
 
 	}
 
 	.actDiv > * > button
 	{
-		width: 350px !important;
-		height: 120px !important;
-		font-size: 2em !important;
+		width: 250px !important;
+		height: 100px !important;
+		font-size: 1.5em !important;
 	}
 
 	#discountDesc
 	{
-		height: 80px;
-		line-height: 80px;
-		font-size: 3em;
+		height: 40px;
+		line-height: 40px;
+		font-size: 1.4em;
 	}
 
 	#discountCant
 	{
-		height: 80px;
-		width: 250px;
-		line-height: 80px;
-		font-size: 3em;
+		height: 40px;
+		width: 110px;
+		line-height: 40px;
+		font-size: 1.4em;
 	}
 
 	#montoCant
 	{
-		height: 80px;
-		width: 250px !important;
-		margin-left: calc(50% - 140px);
-		line-height: 80px;
-		font-size: 3em;
+		height: 60px;
+		width: 200px !important;
+		margin-left: calc(50% - 116px);
+		line-height: 60px;
+		font-size: 1.5em;
 	}
 
 	.chartDiv

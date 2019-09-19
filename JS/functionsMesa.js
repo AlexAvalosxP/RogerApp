@@ -10,6 +10,8 @@ function loadMesasPedido()
     	if (this.readyState == 4 && this.status == 200) {
     		var response = JSON.parse(ajax.responseText);
     		console.log(response);
+
+    		document.getElementById("loadingScreen").hidden = true;
     		
     		for (var i = 0; i < Object.keys(response).length; i++) {
     			menuMesas.innerHTML += '<button id="' + response[i].id + '" onclick="window.location.assign(\'pedido.html?id=' + response[i].id + '\')">' + response[i].name + '</button>';
@@ -69,6 +71,8 @@ function selectOption()
     	if (this.readyState == 4 && this.status == 200) {
     		var response = ajax.responseText;
     		//console.log(response);
+
+    		document.getElementById("loadingScreen").hidden = true;
     		
     		if (response == "[]")
     		{
@@ -287,6 +291,15 @@ function backShowCuenta()
 
 function showCuenta2(tot)
 {
+	document.getElementById("loadingScreen").hidden = false;
+
+	butts = document.getElementsByTagName("button");
+
+	for (i = 0; i < butts.length; i++)
+	{
+		butts[i].disabled = true;
+	}
+
 	dataArr = [];
 
 	itemArray = document.getElementsByClassName('pItem');
@@ -406,6 +419,7 @@ function showCuenta2(tot)
 		    ajax.onreadystatechange = function() {
 		    	if (this.readyState == 4 && this.status == 200) {
 		    		alert("Total a devolver: $" + (parseFloat(montCant) - tot + parseFloat(disCant)).toFixed(2));
+		    		document.getElementById("loadingScreen").hidden = true;
 		    		window.location.assign('mesas.html');
 		    	}
 		    }
@@ -853,6 +867,16 @@ function deleteProd(id)
 
 function agregarPedido(imp)
 {
+	document.getElementById("loadingScreen").hidden = false;
+
+	butts = document.getElementsByTagName("button");
+
+	for (i = 0; i < butts.length; i++)
+	{
+		butts[i].disabled = true;
+	}
+
+
 	dataArr = [];	
 
 	itemArray = document.getElementsByClassName('pItem');
@@ -911,6 +935,7 @@ function agregarPedido(imp)
 	    ajax.onreadystatechange = function() {
 	    	if (this.readyState == 4 && this.status == 200) {
 	    		alert("Pedido registrado correctamente");
+	    		document.getElementById("loadingScreen").hidden = true;
 	    		window.location.assign('mesas.html');
 	    	}
 	    }
