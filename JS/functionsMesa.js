@@ -1,9 +1,20 @@
+function allToSin()
+{
+	selecteds = document.getElementsByClassName("cantIngProd")
+
+	for (i = 0; i < selecteds.length; i++)
+	{
+		selecteds[i].selectedIndex = 0;
+	}
+
+}
+
 function loadMesasPedido()
 {
 	menuMesas = document.getElementById('menuMesas');
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.85/Roger/PHP/GetMesas.php", true);
+    ajax.open('GET', "http://192.168.1.82/Roger/PHP/GetMesas.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -27,7 +38,7 @@ function firstLoad()
 	prices = false;
 
 	var ajaxJSONprod = new XMLHttpRequest();
-	ajaxJSONprod.open('POST', "http://192.168.1.85/Roger/PHP/GetJSONprod.php", true);
+	ajaxJSONprod.open('POST', "http://192.168.1.82/Roger/PHP/GetJSONprod.php", true);
     ajaxJSONprod.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxJSONprod.send();
     ajaxJSONprod.onreadystatechange = function() {
@@ -37,7 +48,7 @@ function firstLoad()
     		document.getElementById("hiddenJSON").innerHTML = response;
 
     		var ajaxJSONcode = new XMLHttpRequest();
-			ajaxJSONcode.open('POST', "http://192.168.1.85/Roger/PHP/GetJSONcode.php", true);
+			ajaxJSONcode.open('POST', "http://192.168.1.82/Roger/PHP/GetJSONcode.php", true);
 		    ajaxJSONcode.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxJSONcode.send();
 		    ajaxJSONcode.onreadystatechange = function() {
@@ -64,7 +75,7 @@ function selectOption()
 	mesaN = id;
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.85/Roger/PHP/GETpedido.php", true);
+    ajax.open('POST', "http://192.168.1.82/Roger/PHP/GETpedido.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send('m=' + id);
     ajax.onreadystatechange = function() {
@@ -92,7 +103,7 @@ function loadMenuMesa(jsonRes)
 	//loadMesa();
 
 	var ajaxM = new XMLHttpRequest();
-    ajaxM.open('POST', "http://192.168.1.85/Roger/PHP/GetMesaById.php", true);
+    ajaxM.open('POST', "http://192.168.1.82/Roger/PHP/GetMesaById.php", true);
     ajaxM.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxM.send("id=" + parseInt(mesaN));
     ajaxM.onreadystatechange = function() {
@@ -293,13 +304,6 @@ function showCuenta2(tot)
 {
 	document.getElementById("loadingScreen").hidden = false;
 
-	butts = document.getElementsByTagName("button");
-
-	for (i = 0; i < butts.length; i++)
-	{
-		butts[i].disabled = true;
-	}
-
 	dataArr = [];
 
 	itemArray = document.getElementsByClassName('pItem');
@@ -317,6 +321,7 @@ function showCuenta2(tot)
 	if (disCant > tot) 
 	{
 		alert("El Descuento es mayor a la cuenta");
+		document.getElementById("loadingScreen").hidden = true;
 
 	}
 	else
@@ -335,6 +340,7 @@ function showCuenta2(tot)
 			if (disDesc != "") 
 			{
 				alert("Ingrese un monto de descuento o borre la descripción")
+				document.getElementById("loadingScreen").hidden = true;
 			}
 			else
 			{
@@ -356,6 +362,7 @@ function showCuenta2(tot)
 		if(tot - parseFloat(disCant) > parseFloat(montCant))
 		{
 			alert("El monto ingresado es menor al total a pagar");
+			document.getElementById("loadingScreen").hidden = true;
 		}
 		else
 		{
@@ -394,7 +401,7 @@ function showCuenta2(tot)
 			nmMesa = document.getElementById('dMesa').innerHTML;
 
 			var ajaxPedido = new XMLHttpRequest();
-		    ajaxPedido.open('POST', "http://192.168.1.85/Roger/PHP/addPedidoDB.php", true);
+		    ajaxPedido.open('POST', "http://192.168.1.82/Roger/PHP/addPedidoDB.php", true);
 		    ajaxPedido.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxPedido.send("m=" + mesaN + "&dc=" + disCant + "&tot=" + tot + "&p=" + JSON.stringify(dataArr));
 		    ajaxPedido.onreadystatechange = function() {
@@ -404,7 +411,7 @@ function showCuenta2(tot)
 		    }
 
 			var ajaxTicket = new XMLHttpRequest();
-		    ajaxTicket.open('POST', "http://192.168.1.85/Roger/PHP/printCuenta.php", true);
+		    ajaxTicket.open('POST', "http://192.168.1.82/Roger/PHP/printCuenta.php", true);
 		    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxTicket.send("m=" + nmMesa + "&dd=" + disDesc + "&dc=" + disCant + "&mc=" + montCant + "&tot=" + tot + "&p=" + JSON.stringify(dataArr));
 		    ajaxTicket.onreadystatechange = function() {
@@ -413,7 +420,7 @@ function showCuenta2(tot)
 		    }
 
 			var ajax = new XMLHttpRequest();
-		    ajax.open('POST', "http://192.168.1.85/Roger/PHP/SETpedido.php", true);
+		    ajax.open('POST', "http://192.168.1.82/Roger/PHP/SETpedido.php", true);
 		    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajax.send("m=" + mesaN + "&d=[]");
 		    ajax.onreadystatechange = function() {
@@ -442,7 +449,7 @@ function cancelPedido()
 function cancelPedido2()
 {
 	var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.85/Roger/PHP/SETpedido.php", true);
+    ajax.open('POST', "http://192.168.1.82/Roger/PHP/SETpedido.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("m=" + mesaN + "&d=[]");
     ajax.onreadystatechange = function() {
@@ -472,7 +479,7 @@ function loadMesa()
 	}
 
 	var ajaxM = new XMLHttpRequest();
-    ajaxM.open('POST', "http://192.168.1.85/Roger/PHP/GetMesaById.php", true);
+    ajaxM.open('POST', "http://192.168.1.82/Roger/PHP/GetMesaById.php", true);
     ajaxM.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxM.send("id=" + parseInt(mesaN));
     ajaxM.onreadystatechange = function() {
@@ -492,7 +499,7 @@ function loadMesa()
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.85/Roger/PHP/GetCategorias.php", true);
+    ajax.open('GET', "http://192.168.1.82/Roger/PHP/GetCategorias.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -519,7 +526,7 @@ function displayProds(idP, indexJSON)
 	menu.innerHTML += "<button onclick='loadMesa()'>Regresar</button>";	
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.85/Roger/PHP/GetProductsByCatId.php", true);
+    ajax.open('POST', "http://192.168.1.82/Roger/PHP/GetProductsByCatId.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("id=" + idP);
     ajax.onreadystatechange = function() {
@@ -560,7 +567,7 @@ function addItemByCode()
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.85/Roger/PHP/GetProductsByCode.php", true);
+    ajax.open('POST', "http://192.168.1.82/Roger/PHP/GetProductsByCode.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("cde=" + prdCode.toUpperCase());
     ajax.onreadystatechange = function() {
@@ -722,6 +729,12 @@ function editProd(idP, pName, idX, index1, index2)
 
 	rootDiv = document.getElementById('ingList');
 
+	newButton = document.createElement("button");
+	newButton.setAttribute("onclick", "allToSin()");
+	newButton.innerHTML = 'Todo "SIN"';
+
+	rootDiv.appendChild(newButton);
+
 	for (var i = 0; i < Object.keys(rootJSON[index1].sub[index2].sub).length; i++) {
 		newSelect = document.createElement('select');
 		newSelect.setAttribute('class', 'cantIngProd');
@@ -775,7 +788,7 @@ function editProd(idP, pName, idX, index1, index2)
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.85/Roger/PHP/GetIngredientesById.php", true);
+    ajax.open('POST', "http://192.168.1.82/Roger/PHP/GetIngredientesById.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("id=" + idP);
     ajax.onreadystatechange = function() {
@@ -869,14 +882,6 @@ function agregarPedido(imp)
 {
 	document.getElementById("loadingScreen").hidden = false;
 
-	butts = document.getElementsByTagName("button");
-
-	for (i = 0; i < butts.length; i++)
-	{
-		butts[i].disabled = true;
-	}
-
-
 	dataArr = [];	
 
 	itemArray = document.getElementsByClassName('pItem');
@@ -919,7 +924,7 @@ function agregarPedido(imp)
 		if (imp == 1)
 		{
 			var ajaxTicket = new XMLHttpRequest();
-		    ajaxTicket.open('POST', "http://192.168.1.85/Roger/PHP/printPedido.php", true);
+		    ajaxTicket.open('POST', "http://192.168.1.82/Roger/PHP/printPedido.php", true);
 		    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxTicket.send("m=" + nmMesa + "&p=" + JSON.stringify(dataArr));
 		    ajaxTicket.onreadystatechange = function() {
@@ -929,7 +934,7 @@ function agregarPedido(imp)
 		}
 
 		var ajax = new XMLHttpRequest();
-	    ajax.open('POST', "http://192.168.1.85/Roger/PHP/SETpedido.php", true);
+	    ajax.open('POST', "http://192.168.1.82/Roger/PHP/SETpedido.php", true);
 	    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	    ajax.send("m=" + mesaN + "&d=" + JSON.stringify(dataArr));
 	    ajax.onreadystatechange = function() {
@@ -943,6 +948,7 @@ function agregarPedido(imp)
 	else
 	{
 		alert("No se han agregado productos para registrar");
+		document.getElementById("loadingScreen").hidden = true;
 	}
 }
 

@@ -10,6 +10,26 @@
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+.ingList > button
+{
+	height: 50px !important;
+	width: 100% !important;
+	font-size: 1.3em !important;
+	color: white;
+	background: var(--main_color);
+}
+
+.backLoad
+{
+	height: 100vh;
+	width: 100vw;
+	background: rgba(0,0,0,0.4);
+	z-index: 998;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
 .loadingScreen
 {
 	position: fixed;
