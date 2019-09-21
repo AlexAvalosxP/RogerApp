@@ -285,7 +285,16 @@ function showCuenta()
 		totalCta += parseFloat(pricesArray[i].innerText.substring(1))
 	}
 
-	menu.innerHTML = "<div><h2>Total a cobrar:</h2><h3>$" + totalCta.toFixed(2) + "<h3><h2>Descuento:</h2><input type='text' id='discountDesc' placeholder='Concepto'><input type=number id='discountCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><h2>Monto recibido:</h2><input type=number id='montoCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><button onclick='backShowCuenta()'>Cancelar</button><button onclick='showCuenta2(" + totalCta + ")'>Generar cuenta</button></div>";
+	menu.innerHTML = "<div><h2>Total a cobrar:</h2><h3>$" + totalCta.toFixed(2) + "<h3><h2>Descuento:</h2><input type='text' id='discountDesc' placeholder='Concepto'><input type=number id='discountCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><h2>Monto recibido:</h2><input type=number id='montoCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><button onclick='backShowCuenta()'>Cancelar</button><button id='btnDoCuenta' onclick='showCuenta2(" + totalCta + ")'>Generar cuenta</button></div>";
+
+	input = document.getElementById("montoCant");
+
+	input.addEventListener("keyup", function(event) {
+	  if (event.keyCode === 13) {
+	    event.preventDefault();
+	    document.getElementById("btnDoCuenta").click();
+	  }
+	});
 }
 
 function backShowCuenta()
@@ -465,6 +474,8 @@ function loadMesa()
 	//document.getElementById('cdeDiv').hidden = false;
 	cntrl = document.getElementsByClassName('btnControl');
 	document.getElementById('btnSwitch').hidden = false;
+	document.getElementById('btnAgg1').hidden = false;
+	document.getElementById('btnAgg2').hidden = false;
 
 	for (i = 0; i < cntrl.length; i++)
 	{
