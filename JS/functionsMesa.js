@@ -14,7 +14,7 @@ function loadMesasPedido()
 	menuMesas = document.getElementById('menuMesas');
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetMesas.php", true);
+    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetMesasN.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -25,7 +25,14 @@ function loadMesasPedido()
     		document.getElementById("loadingScreen").hidden = true;
     		
     		for (var i = 0; i < Object.keys(response).length; i++) {
-    			menuMesas.innerHTML += '<button id="' + response[i].id + '" onclick="window.location.assign(\'pedido.html?id=' + response[i].id + '\')">' + response[i].name + '</button>';
+    			if (response[i].type == 0)
+    			{
+    				menuMesas.innerHTML += '<button id="' + response[i].id + '" onclick="window.location.assign(\'pedido.html?id=' + response[i].id + '\')">' + response[i].name + '</button>';
+    			}
+    			else
+    			{
+    				menuMesas.innerHTML += '<button style="background:#091f21 !important" id="' + response[i].id + '" onclick="window.location.assign(\'pedido.html?id=' + response[i].id + '\')">' + response[i].name + '</button>';
+    			}
     		}	
     	}
 	}
