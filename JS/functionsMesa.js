@@ -524,7 +524,7 @@ function cancelPedido2()
 
 function loadMesa()
 {
-	document.getElementById('cdeDiv').hidden = false;
+	//document.getElementById('cdeDiv').hidden = false;
 	cntrl = document.getElementsByClassName('btnControl');
 	document.getElementById('btnSwitch').hidden = false;
 	document.getElementById('btnAgg1').hidden = false;
