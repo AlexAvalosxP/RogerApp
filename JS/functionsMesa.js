@@ -147,7 +147,7 @@ function loadMenuMesa(jsonRes)
 
 		newButtonSn = document.createElement('button')
 		newButtonSn.setAttribute("onclick", "editProd('" + pedidoJson[i].prodId + "', '" + pedidoJson[i].prodNm + "', '" + ingElemIndex + "', " + parseInt(pedidoJson[i].index1) + ", " + parseInt(pedidoJson[i].index2) + ")");
-		newButtonSn.innerHTML = "S/";
+		newButtonSn.innerHTML = "▼";
 		newButtonSn.setAttribute("class", "btnControl");
 		newButtonSn.setAttribute('hidden', 'true');
 
@@ -255,8 +255,63 @@ function loadOptionsMesa()
 	menu.innerHTML = "";
 
 	menu.innerHTML += "<button onclick='loadMesa()'>Editar pedido</button>";
-	menu.innerHTML += "<button onclick='showCuenta()'>Liberar mesa (cuenta)</button>";
+	menu.innerHTML += "<button onclick='loadMesasLibres()'>Cambiar mesa</button>";
+	menu.innerHTML += "<button onclick='showCuenta()'>Liberar mesa (CUENTA)</button>";
 	menu.innerHTML += "<button onclick='cancelPedido()'>Cancelar pedido</button>";
+}
+
+function loadMesasLibres()
+{
+	var urlParams = new URLSearchParams(window.location.search);
+	id = urlParams.get('id');
+
+	menu = document.getElementById("menuList");
+	menu.innerHTML = "";
+
+	menu.innerHTML = "<h1 style='color:white;'>Mesas libres</h1>";
+
+	var ajax = new XMLHttpRequest();
+    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetMesasLibres.php", true);
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ajax.send();
+    ajax.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+    		var response = JSON.parse(ajax.responseText);
+    		console.log(response);
+
+    		menu.innerHTML += '<button onclick="loadOptionsMesa()" style="background: black !important; height: 80px !important; width: calc(100% - 80px) !important;">Regresar</button>';
+    		
+    		for (var i = 0; i < Object.keys(response).length; i++) {
+    			menu.innerHTML += '<button id="' + response[i].id + '" onclick="changeMesas(' + id + ', ' + response[i].id + ')">' + response[i].name + '</button>';
+    		}	
+
+    		document.getElementById("loadingScreen").hidden = true;
+    	}
+	}
+}
+
+function changeMesas(idOrigin, idDestiny)
+{
+	var ajax = new XMLHttpRequest();
+    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/ChangeMesas.php", true);
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ajax.send("o=" + idOrigin + "&d=" + idDestiny);
+    ajax.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+    		var response = ajax.responseText;
+    		//console.log(response);
+
+    		if (response == "yes")
+    		{
+    			window.location.assign('pedido.html?id=' + idDestiny);
+    		}
+    		else
+    		{
+    			alert("NO SE PUDO CAMBIAR LA MESA");
+    			loadOptionsMesa()
+    		}
+    	}
+	}
 }
 
 function showCuenta()
@@ -285,7 +340,7 @@ function showCuenta()
 		totalCta += parseFloat(pricesArray[i].innerText.substring(1))
 	}
 
-	menu.innerHTML = "<div><h2>Total a cobrar:</h2><h3>$" + totalCta.toFixed(2) + "<h3><h2>Descuento:</h2><input type='text' id='discountDesc' placeholder='Concepto'><input type=number id='discountCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><h2>Monto recibido:</h2><input type=number id='montoCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><button onclick='backShowCuenta()'>Cancelar</button><button id='btnDoCuenta' onclick='showCuenta2(" + totalCta + ")'>Generar cuenta</button></div>";
+	menu.innerHTML = "<div><h2>Total a cobrar:</h2><h3>$" + totalCta.toFixed(2) + "<h3><h2>Descuento:</h2><input type='text' id='discountDesc' placeholder='Concepto'><input type=number id='discountCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><h2>Monto recibido:</h2><input type=number id='montoCant' step='0.10' onchange='roundPrice(this)' placeholder='Cantidad'><button onclick='backShowCuenta()'>Regresar</button><button id='btnDoCuenta' onclick='showCuenta2(" + totalCta + ")'>Generar cuenta</button></div>";
 
 	input = document.getElementById("montoCant");
 
@@ -312,7 +367,6 @@ function backShowCuenta()
 function showCuenta2(tot)
 {
 	document.getElementById("loadingScreen").hidden = false;
-
 	dataArr = [];
 
 	itemArray = document.getElementsByClassName('pItem');
@@ -435,7 +489,6 @@ function showCuenta2(tot)
 		    ajax.onreadystatechange = function() {
 		    	if (this.readyState == 4 && this.status == 200) {
 		    		alert("Total a devolver: $" + (parseFloat(montCant) - tot + parseFloat(disCant)).toFixed(2));
-		    		document.getElementById("loadingScreen").hidden = true;
 		    		window.location.assign('mesas.html');
 		    	}
 		    }
@@ -449,7 +502,7 @@ function showCuenta2(tot)
 
 function cancelPedido()
 {
-	menu.innerHTML = "¿Estás seguro que quieres cancelar este pedido?";
+	menu.innerHTML = "<h1 style='color:white;'>¿Estás seguro que quieres cancelar este pedido?</h1>";
 
 	menu.innerHTML += "<br><button onclick='cancelPedido2()'>Sí, Cancelar pedido</button>";
 	menu.innerHTML += "<button onclick='loadOptionsMesa()'>No, regresar</button>";
@@ -471,7 +524,7 @@ function cancelPedido2()
 
 function loadMesa()
 {
-	//document.getElementById('cdeDiv').hidden = false;
+	document.getElementById('cdeDiv').hidden = false;
 	cntrl = document.getElementsByClassName('btnControl');
 	document.getElementById('btnSwitch').hidden = false;
 	document.getElementById('btnAgg1').hidden = false;
@@ -530,11 +583,11 @@ function displayProds(idP, indexJSON)
 	menu = document.getElementById("menuList");
 	menu.innerHTML = "";
 
+	menu.innerHTML += "<button onclick='loadMesa()' style='background: black !important; height: 80px !important; width: calc(100% - 80px) !important;'>Regresar</button>";
+
 	for (var i = 0; i < Object.keys(rootJSON[indexJSON].sub).length; i++) {
 		menu.innerHTML += "<button onclick='addItemPedido(" + rootJSON[indexJSON].sub[i].id + ", \"" + rootJSON[indexJSON].sub[i].name + "\", " + rootJSON[indexJSON].typeC + ", \"" + rootJSON[indexJSON].sub[i].price + "\", " + indexJSON + ", " + i + ")'>" + rootJSON[indexJSON].sub[i].name + "</button>";
-	}
-
-	menu.innerHTML += "<button onclick='loadMesa()'>Regresar</button>";	
+	}	
 
 	/*var ajax = new XMLHttpRequest();
     ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetProductsByCatId.php", true);
@@ -633,7 +686,7 @@ function addItemPedido(idP, nameP, typeC, priceP, index1, index2)
 	newButtonSn = document.createElement('button')
 	newButtonSn.setAttribute("onclick", "editProd('" + idP + "', '" + nameP + "', '" + ingElemIndex + "', " + index1 + ", " + index2 + ")");
 	newButtonSn.setAttribute("class", "btnControl");
-	newButtonSn.innerHTML = "S/";
+	newButtonSn.innerHTML = "▼";
 
 	newH2_hidden = document.createElement('h2');
 	newH2_hidden.setAttribute('class', 'pricesP');
@@ -932,6 +985,7 @@ function agregarPedido(imp)
 	if(dataArr.length != 0)
 	{
 		nmMesa = document.getElementById('dMesa').innerHTML;
+
 		if (imp == 1)
 		{
 			var ajaxTicket = new XMLHttpRequest();
@@ -950,8 +1004,8 @@ function agregarPedido(imp)
 	    ajax.send("m=" + mesaN + "&d=" + JSON.stringify(dataArr));
 	    ajax.onreadystatechange = function() {
 	    	if (this.readyState == 4 && this.status == 200) {
-	    		alert("Pedido registrado correctamente");
 	    		document.getElementById("loadingScreen").hidden = true;
+	    		alert("Pedido registrado correctamente");
 	    		window.location.assign('mesas.html');
 	    	}
 	    }
