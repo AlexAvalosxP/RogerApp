@@ -14,7 +14,7 @@ function loadMesasPedido()
 	menuMesas = document.getElementById('menuMesas');
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetMesasN.php", true);
+    ajax.open('GET', "http://192.168.1.76:6077/Roger/PHP/GetMesasN.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -45,7 +45,7 @@ function firstLoad()
 	prices = false;
 
 	var ajaxJSONprod = new XMLHttpRequest();
-	ajaxJSONprod.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetJSONprod.php", true);
+	ajaxJSONprod.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetJSONprod.php", true);
     ajaxJSONprod.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxJSONprod.send();
     ajaxJSONprod.onreadystatechange = function() {
@@ -55,7 +55,7 @@ function firstLoad()
     		document.getElementById("hiddenJSON").innerHTML = response;
 
     		var ajaxJSONcode = new XMLHttpRequest();
-			ajaxJSONcode.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetJSONcode.php", true);
+			ajaxJSONcode.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetJSONcode.php", true);
 		    ajaxJSONcode.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxJSONcode.send();
 		    ajaxJSONcode.onreadystatechange = function() {
@@ -82,7 +82,7 @@ function selectOption()
 	mesaN = id;
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/GETpedido.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/GETpedido.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send('m=' + id);
     ajax.onreadystatechange = function() {
@@ -110,7 +110,7 @@ function loadMenuMesa(jsonRes)
 	//loadMesa();
 
 	var ajaxM = new XMLHttpRequest();
-    ajaxM.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetMesaById.php", true);
+    ajaxM.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetMesaById.php", true);
     ajaxM.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxM.send("id=" + parseInt(mesaN));
     ajaxM.onreadystatechange = function() {
@@ -278,7 +278,7 @@ function loadMesasLibres()
 	menu.innerHTML = "<h1 style='color:white;'>Mesas libres</h1>";
 
 	var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetMesasLibres.php", true);
+    ajax.open('GET', "http://192.168.1.76:6077/Roger/PHP/GetMesasLibres.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -300,7 +300,7 @@ function loadMesasLibres()
 function changeMesas(idOrigin, idDestiny)
 {
 	var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/ChangeMesas.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/ChangeMesas.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("o=" + idOrigin + "&d=" + idDestiny);
     ajax.onreadystatechange = function() {
@@ -471,7 +471,7 @@ function showCuenta2(tot)
 			nmMesa = document.getElementById('dMesa').innerHTML;
 
 			var ajaxPedido = new XMLHttpRequest();
-		    ajaxPedido.open('POST', "http://192.168.1.69:6077/Roger/PHP/addPedidoDB.php", true);
+		    ajaxPedido.open('POST', "http://192.168.1.76:6077/Roger/PHP/addPedidoDB.php", true);
 		    ajaxPedido.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxPedido.send("m=" + mesaN + "&dc=" + disCant + "&tot=" + tot + "&p=" + JSON.stringify(dataArr));
 		    ajaxPedido.onreadystatechange = function() {
@@ -481,7 +481,7 @@ function showCuenta2(tot)
 		    }
 
 			var ajaxTicket = new XMLHttpRequest();
-		    ajaxTicket.open('POST', "http://192.168.1.69:6077/Roger/PHP/printCuenta.php", true);
+		    ajaxTicket.open('POST', "http://192.168.1.76:6077/Roger/PHP/printCuenta.php", true);
 		    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxTicket.send("m=" + nmMesa + "&dd=" + disDesc + "&dc=" + disCant + "&mc=" + montCant + "&tot=" + tot + "&p=" + JSON.stringify(dataArr));
 		    ajaxTicket.onreadystatechange = function() {
@@ -490,7 +490,7 @@ function showCuenta2(tot)
 		    }
 
 			var ajax = new XMLHttpRequest();
-		    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/SETpedido.php", true);
+		    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/SETpedido.php", true);
 		    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajax.send("m=" + mesaN + "&d=[]");
 		    ajax.onreadystatechange = function() {
@@ -518,7 +518,7 @@ function cancelPedido()
 function cancelPedido2()
 {
 	var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/SETpedido.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/SETpedido.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("m=" + mesaN + "&d=[]");
     ajax.onreadystatechange = function() {
@@ -550,7 +550,7 @@ function loadMesa()
 	}
 
 	var ajaxM = new XMLHttpRequest();
-    ajaxM.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetMesaById.php", true);
+    ajaxM.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetMesaById.php", true);
     ajaxM.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajaxM.send("id=" + parseInt(mesaN));
     ajaxM.onreadystatechange = function() {
@@ -570,7 +570,7 @@ function loadMesa()
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('GET', "http://192.168.1.69:6077/Roger/PHP/GetCategorias.php", true);
+    ajax.open('GET', "http://192.168.1.76:6077/Roger/PHP/GetCategorias.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send();
     ajax.onreadystatechange = function() {
@@ -597,7 +597,7 @@ function displayProds(idP, indexJSON)
 	}	
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetProductsByCatId.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetProductsByCatId.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("id=" + idP);
     ajax.onreadystatechange = function() {
@@ -638,7 +638,7 @@ function addItemByCode()
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetProductsByCode.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetProductsByCode.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("cde=" + prdCode.toUpperCase());
     ajax.onreadystatechange = function() {
@@ -859,7 +859,7 @@ function editProd(idP, pName, idX, index1, index2)
 	}
 
 	/*var ajax = new XMLHttpRequest();
-    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/GetIngredientesById.php", true);
+    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/GetIngredientesById.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("id=" + idP);
     ajax.onreadystatechange = function() {
@@ -996,7 +996,7 @@ function agregarPedido(imp)
 		if (imp == 1)
 		{
 			var ajaxTicket = new XMLHttpRequest();
-		    ajaxTicket.open('POST', "http://192.168.1.69:6077/Roger/PHP/printPedido.php", true);
+		    ajaxTicket.open('POST', "http://192.168.1.76:6077/Roger/PHP/printPedido.php", true);
 		    ajaxTicket.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    ajaxTicket.send("m=" + nmMesa + "&p=" + JSON.stringify(dataArr));
 		    ajaxTicket.onreadystatechange = function() {
@@ -1006,7 +1006,7 @@ function agregarPedido(imp)
 		}
 
 		var ajax = new XMLHttpRequest();
-	    ajax.open('POST', "http://192.168.1.69:6077/Roger/PHP/SETpedido.php", true);
+	    ajax.open('POST', "http://192.168.1.76:6077/Roger/PHP/SETpedido.php", true);
 	    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	    ajax.send("m=" + mesaN + "&d=" + JSON.stringify(dataArr));
 	    ajax.onreadystatechange = function() {
